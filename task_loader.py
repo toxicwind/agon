@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task-spec loader for furlong.
+"""Task-spec loader for agon.
 
 A task dir:
     <task>/

@@ -3,7 +3,7 @@
   {
    "cmd": [
     "python3",
-    "/home/toxic/estate/killer-features/furlong/strategies/demo/solver_fast.py",
+    "/home/toxic/estate/killer-features/agon/strategies/demo/solver_fast.py",
     "{outdir}"
    ],
    "name": "demo-fast"
@@ -11,7 +11,7 @@
   {
    "cmd": [
     "python3",
-    "/home/toxic/estate/killer-features/furlong/strategies/demo/solver_slow.py",
+    "/home/toxic/estate/killer-features/agon/strategies/demo/solver_slow.py",
     "{outdir}"
    ],
    "name": "demo-slow"
@@ -19,7 +19,7 @@
   {
    "cmd": [
     "python3",
-    "/home/toxic/estate/killer-features/furlong/strategies/demo/solver_broken.py",
+    "/home/toxic/estate/killer-features/agon/strategies/demo/solver_broken.py",
     "{outdir}"
    ],
    "name": "demo-broken"
@@ -27,7 +27,7 @@
   {
    "name": "direct-fast",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/direct-fast/run",
+    "/home/toxic/estate/killer-features/agon/strategies/direct-fast/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -36,7 +36,7 @@
   {
    "name": "direct-tool",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/direct-tool/run",
+    "/home/toxic/estate/killer-features/agon/strategies/direct-tool/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -45,7 +45,7 @@
   {
    "name": "kimi-auto",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/kimi-auto/run",
+    "/home/toxic/estate/killer-features/agon/strategies/kimi-auto/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -54,7 +54,7 @@
   {
    "name": "router-hedged",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/router-hedged/run",
+    "/home/toxic/estate/killer-features/agon/strategies/router-hedged/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -63,7 +63,7 @@
   {
    "name": "plan-then-code",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/plan-then-code/run",
+    "/home/toxic/estate/killer-features/agon/strategies/plan-then-code/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -72,7 +72,7 @@
   {
    "name": "test-first",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/test-first/run",
+    "/home/toxic/estate/killer-features/agon/strategies/test-first/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -81,7 +81,7 @@
   {
    "name": "oracle-consensus",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/oracle-consensus/run",
+    "/home/toxic/estate/killer-features/agon/strategies/oracle-consensus/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -90,7 +90,7 @@
   {
    "name": "evolve",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/evolve/run",
+    "/home/toxic/estate/killer-features/agon/strategies/evolve/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -99,7 +99,7 @@
   {
    "name": "reviewer-rank",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/reviewer-rank/run",
+    "/home/toxic/estate/killer-features/agon/strategies/reviewer-rank/run",
     "{taskdir}",
     "{outdir}"
    ],
@@ -108,16 +108,16 @@
   {
    "name": "showdown",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/showdown/run",
+    "/home/toxic/estate/killer-features/agon/strategies/showdown/run",
     "{taskdir}",
     "{outdir}"
    ],
    "timeout_s": 480
   },
   {
-   "name": "efficiency-duel",
+   "name": "efficiency-antilogos",
    "cmd": [
-    "/home/toxic/estate/killer-features/furlong/strategies/efficiency-duel/run",
+    "/home/toxic/estate/killer-features/agon/strategies/efficiency-antilogos/run",
     "{taskdir}",
     "{outdir}"
    ],

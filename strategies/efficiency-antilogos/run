@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""efficiency-duel: RACE-inspired correctness-gated efficiency selection.
+"""efficiency-antilogos: RACE-inspired correctness-gated efficiency selection.
 
 RACE (Apache-2.0) evaluates codegen on correctness AND efficiency. Its
 pipeline needs torch/transformers (absent on yote), so this adapter
 implements the RACE *idea* with our own code:
-  1. duel: fast (1.2B) vs tool (9B), one candidate each
+  1. antilogos: fast (1.2B) vs tool (9B), one candidate each
   2. model-generated probe.py (from spec only, never tests/) runs timed
      against both
   3. correctness gate: candidates whose probe outputs agree with the
@@ -27,7 +27,7 @@ def main(task_dir, output_path):
     spec = read_task(task_dir)
     lang = spec.get("language", "python")
     prompt = spec_prompt(spec)
-    log("efficiency-duel: fast vs tool")
+    log("efficiency-antilogos: fast vs tool")
     cands = []
     for name, url, model, mt, to in (
             ("fast", FAST_URL, FAST_MODEL, 2048, 120),

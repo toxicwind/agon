@@ -1,4 +1,4 @@
-# furlong adapter interface (proposed by t1-impl-strategies, 2026-09-20)
+# agon adapter interface (proposed by t1-impl-strategies, 2026-09-20)
 
 A **strategy** is a directory `strategies/<name>/` containing an executable `run`
 (invoked as `./run <task-dir> <output-path>`). The harness is strategy-agnostic:
@@ -27,10 +27,10 @@ strategies/<name>/run <task-dir> <output-path>
 
 ## Environment (harness-supplied, adapter must honor)
 
-- `FURLONG_DEADLINE` — unix timestamp; adapter must stop before it (fail-fast ceiling).
-- `FURLONG_TIMEOUT_S` — wall-clock ceiling in seconds for this run.
-- `FURLONG_MODEL` / `FURLONG_BASE_URL` — optional overrides for model backends.
-- `FURLONG_TEMPERATURE` — optional; adapters with a genuinely different
+- `AGON_DEADLINE` — unix timestamp; adapter must stop before it (fail-fast ceiling).
+- `AGON_TIMEOUT_S` — wall-clock ceiling in seconds for this run.
+- `AGON_MODEL` / `AGON_BASE_URL` — optional overrides for model backends.
+- `AGON_TEMPERATURE` — optional; adapters with a genuinely different
   temperature schedule may use it, but temperature alone is NOT a distinct strategy.
 
 ## Conventions
@@ -55,18 +55,18 @@ strategies/<name>/run <task-dir> <output-path>
 | `evolve` | N samples, behavioral self-consistency vote on spec-generated probes | tool |
 | `reviewer-rank` | N samples, reviewer scores 1-10, top wins (CoderReviewer idea, reimplemented — vendor CC-BY-NC) | tool samples + reviews |
 | `showdown` | 2 runners, probe evidence + judge worksheet (speed-run pattern) | fast vs tool, judge tool |
-| `efficiency-duel` | cross-model duel, correctness-gated fastest-wins (RACE idea, reimplemented) | fast vs tool |
+| `efficiency-antilogos` | cross-model antilogos, correctness-gated fastest-wins (RACE idea, reimplemented) | fast vs tool |
 
 ## Anti-cheat compliance (per tasks/CONTRACT.md)
 
 No adapter opens or reads anything under `<taskdir>/tests/`. Execution-based
-strategies (evolve, showdown, efficiency-duel, test-first) run only
+strategies (evolve, showdown, efficiency-antilogos, test-first) run only
 model-generated probes or self-written tests against candidate code.
 Solutions use stdlib only, no network.
 
 License notes: coder_reviewer_reranking (CC-BY-NC 4.0) and SRank-CodeRanker
 (MIT claimed, no LICENSE file — unconfirmed) are NOT wrapped directly;
-reviewer-rank/efficiency-duel/evolve are clean-room reimplementations of the
+reviewer-rank/efficiency-antilogos/evolve are clean-room reimplementations of the
 published ideas. RACE is Apache-2.0 but its pipeline needs torch/transformers
 (absent on yote) — idea reimplemented instead. Any future wrapper just drops an
 executable `run <task-dir> <output-path>` into strategies/.

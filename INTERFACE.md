@@ -1,4 +1,4 @@
-# furlong harness — interface contract v1
+# agon harness — interface contract v1
 
 Frozen 2026-09-20 by t1-impl-core. This is the agreement between the harness
 core (this repo) and candidate-strategy adapters (t1-impl-strategies).
@@ -55,12 +55,12 @@ tasks/<task-name>/
   phase at `test_timeout_s`.
 - Winner = **first solution whose acceptance tests all pass**, tie-broken by
   lowest total latency. Measured per hop: solve_s, test_s, total_s.
-- Every race appends to `winners/furlong-<task>.jsonl`:
+- Every race appends to `winners/agon-<task>.jsonl`:
   `{ts, task, race_id, tag, winner, strategy_latency, candidates: {name:
   {solve, tests, valid, total_s}}, solve_timeout_s, test_timeout_s, wall_s}`.
 - race.py also logs to the global HFT winners log
   (`~/.cache/shingle/hft_race_winners.jsonl`) under tag
-  `furlong-<task>` — the race-optimizer daemon watches this.
+  `agon-<task>` — the race-optimizer daemon watches this.
 
 ## CLI
 

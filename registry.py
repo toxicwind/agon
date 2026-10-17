@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Candidate registry for furlong.
+"""Candidate registry for agon.
 
 strategies/registry.json:
     {"strategies": [

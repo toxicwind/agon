@@ -1,4 +1,4 @@
-# FizzBuzz — sample furlong task
+# FizzBuzz — sample agon task
 
 Write a Python module `solution.py` exposing:
 
