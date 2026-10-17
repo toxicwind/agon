@@ -1,6 +1,6 @@
-# code-racer task corpus (v2)
+# furlong task corpus (v2)
 
-4 real coding tasks for the universal code racer harness. Built by t1-e2e. Conforms to the frozen harness contract: `code-racer/INTERFACE.md` v1 (t1-impl-core). Designed for BOTH: (a) code-racer strategy racing, (b) t3-e2e debate-vs-single-shot A/B (same prompt/acceptance format).
+4 real coding tasks for the universal code racer harness. Built by t1-e2e. Conforms to the frozen harness contract: `furlong/INTERFACE.md` v1 (t1-impl-core). Designed for BOTH: (a) furlong strategy racing, (b) t3-e2e debate-vs-single-shot A/B (same prompt/acceptance format).
 
 <div align="right">
 
@@ -34,7 +34,7 @@ tasks/
   task-3-wordfreq-cli/        implement a CLI to spec (subprocess-tested)
   task-4-lru-cache/           implement LRU cache (eviction-order + perf test)
     task.md                   problem statement (harness reads this)
-    PROBLEM.md                identical copy (shared name w/ debate-oracle corpus)
+    PROBLEM.md                identical copy (shared name w/ duel corpus)
     solution.py               starter stub (task-2: buggy module is rate_limiter.py,
                               candidate writes the FIXED code as solution.py)
     tests/test_acceptance.py  HIDDEN acceptance tests (`from solution import ...`;
@@ -67,14 +67,14 @@ tasks/
 
 ## Sibling corpora
 
-- `killer-features/debate-oracle/tasks/` (t3-e2e): 5 tasks (token-bucket, toposort, lru-cache, expr-eval, bloom-filter), PROBLEM.md + hidden pytest, validated 39/39. NOTE: for harness (`import solution`) reuse they need the same v2 test convention — flagged to t3-e2e on fleet.
-- `code-racer/tasks/{fizzbuzz-01,smoke-two-sum}`: harness smoke tasks (other authors, different format) — left untouched.
+- `killer-features/duel/tasks/` (t3-e2e): 5 tasks (token-bucket, toposort, lru-cache, expr-eval, bloom-filter), PROBLEM.md + hidden pytest, validated 39/39. NOTE: for harness (`import solution`) reuse they need the same v2 test convention — flagged to t3-e2e on fleet.
+- `furlong/tasks/{fizzbuzz-01,smoke-two-sum}`: harness smoke tasks (other authors, different format) — left untouched.
 
 ## Validation status
 
 - [x] Reference solutions (t1-e2e local only, NOT in this tree): all 4 suites pass.
 - [x] Negative controls: task-1/3/4 starters fail (NotImplementedError); task-2 buggy module fails (sub-second refill tests).
-- [ ] Full harness e2e run (pending t1-impl-core harness + t1-impl-strategies adapters landing) → E2E-REPORT.md at code-racer/ root.
+- [ ] Full harness e2e run (pending t1-impl-core harness + t1-impl-strategies adapters landing) → E2E-REPORT.md at furlong/ root.
 
 ## License & security
 

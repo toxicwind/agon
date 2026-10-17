@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """race-task <task-dir> --strategies all|name,... [--timeout N] [--workers N]
 
-Race registered candidate strategies on a code-racer task. First solution
+Race registered candidate strategies on a furlong task. First solution
 PASSING the task's real acceptance tests wins (fail-fast per-strategy
-timeouts). Results -> winners/code-racer-<task>.jsonl + race.py global log.
+timeouts). Results -> winners/furlong-<task>.jsonl + race.py global log.
 """
 from __future__ import annotations
 
@@ -34,14 +34,14 @@ def main() -> int:
                     help="max concurrent strategies")
     ap.add_argument("--registry",
                     default=str(HERE / "strategies" / "registry.json"))
-    ap.add_argument("--tag", default=None, help="race tag (default code-racer-<task>)")
+    ap.add_argument("--tag", default=None, help="race tag (default furlong-<task>)")
     a = ap.parse_args()
 
     task = load_task(a.task_dir)
     solve_to = a.timeout or task.solve_timeout_s
     test_to = task.test_timeout_s
     workers = a.workers or task.workers
-    tag = a.tag or f"code-racer-{task.name}"
+    tag = a.tag or f"furlong-{task.name}"
     strats = select_strats(load_registry(a.registry), a.strategies)
     if not strats:
         print("no strategies selected", file=sys.stderr)
@@ -94,7 +94,7 @@ def main() -> int:
         "solve_timeout_s": solve_to, "test_timeout_s": test_to,
         "wall_s": wall_s, "workers": workers,
     }
-    ledger = ledger_append(HERE / "winners" / f"code-racer-{task.name}.jsonl", entry)
+    ledger = ledger_append(HERE / "winners" / f"furlong-{task.name}.jsonl", entry)
 
     w = result.get("winner")
     n_valid = len([c for c in cand.values() if c["valid"]])

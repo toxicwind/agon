@@ -1,7 +1,7 @@
 """Hidden acceptance tests for task-1-duration-parser.
 
 HIDDEN from candidate strategies: adapters must not read tests/.
-Conforms to code-racer INTERFACE.md v1: `from solution import ...` works in
+Conforms to furlong INTERFACE.md v1: `from solution import ...` works in
 the harness testbed (solution.py sits flat next to this file).
 """
 import math

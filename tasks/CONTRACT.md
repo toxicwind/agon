@@ -12,7 +12,7 @@ verification works and what counts as a harness bug.
 - Valid = solution exists AND pytest rc==0 AND failed==0 AND passed>0
   (parsed from `-q` output: `N passed` / `N failed, M passed`).
 - Per-candidate NDJSON `candidate_result` on stderr; winners appended to
-  `winners/code-racer-<task>.jsonl`; race.py also logs tag `code-racer-<task>`
+  `winners/furlong-<task>.jsonl`; race.py also logs tag `furlong-<task>`
   to `~/.cache/shingle/hft_race_winners.jsonl`.
 
 ## E2E independent verification (t1-e2e, trust-but-verify)
@@ -44,5 +44,5 @@ After the harness declares a winner per task:
 
 Same corpus works for A/B: prompt = `task.md` + starter/buggy file(s);
 outcome = hidden `tests/` pass/fail + wall-clock. Suggested metric: pass@k and
-median latency per task, single-shot vs debate-of-3. Their debate-oracle corpus
+median latency per task, single-shot vs debate-of-3. Their duel corpus
 (5 tasks) + this corpus (4 tasks) = 9-task A/B pool once test conventions align.

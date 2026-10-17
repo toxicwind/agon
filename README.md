@@ -1,4 +1,4 @@
-# code-racer — harness core
+# furlong — harness core
 
 Race candidate code strategies against each other. First solution **passing the task's real acceptance tests** wins — slow is a kind of wrong, broken is disqualified.
 
@@ -35,7 +35,7 @@ flowchart LR
 ## Layout
 
 ```
-code-racer/
+furlong/
 ├── race-task            # CLI: race-task <task-dir> --strategies all|a,b --timeout N
 ├── task_loader.py       # task-spec loader (task.md + tests/ + limits.yaml)
 ├── registry.py          # candidate registry (strategies/registry.json)
@@ -54,7 +54,7 @@ code-racer/
 ## Quick start
 
 ```bash
-cd /home/toxic/estate/killer-features/code-racer
+cd /home/toxic/estate/killer-features/furlong
 ./race-task tasks/smoke-two-sum --strategies all
 ```
 
@@ -86,7 +86,7 @@ Per-strategy `timeout_s` in the registry overrides the task solve cap.
 - E2E real: no mocks. Strategies are real subprocesses; acceptance tests are real pytest runs in isolated testbed dirs.
 - Validity = exit 0 AND stdout match `RACE-PASS` in race.py; run_candidate only emits that when pytest passes on the produced solution.
 - Per-hop latency measured everywhere: solve_s, test_s, total_s, wall_s.
-- Ledger at `winners/code-racer-<task>.jsonl` (fsync'd); race.py also logs to the global HFT winners log for the race-optimizer daemon.
+- Ledger at `winners/furlong-<task>.jsonl` (fsync'd); race.py also logs to the global HFT winners log for the race-optimizer daemon.
 
 ## License & security
 

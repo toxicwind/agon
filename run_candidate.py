@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One code-racer contestant.
+"""One furlong contestant.
 
 Runs a registered strategy's command (fail-fast), then runs the task's REAL
 acceptance tests against the produced solution.py. Prints RACE-PASS on stdout

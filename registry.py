@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Candidate registry for code-racer.
+"""Candidate registry for furlong.
 
 strategies/registry.json:
     {"strategies": [

@@ -1,15 +1,15 @@
-# code-racer — vendored repo research (t1-repos, 2026-09-20)
+# furlong — vendored repo research (t1-repos, 2026-09-20)
 
 Surveyed ~70 GitHub hits across "ensemble code generation", "code generation
 reranking", "multi-sample code", "pass@k", "code candidate selection",
 "llm code race". Cloned the 4 most reusable to `vendor/` on yote:
-`/home/toxic/estate/killer-features/code-racer/vendor/`.
+`/home/toxic/estate/killer-features/furlong/vendor/`.
 
 ## CLONED
 
 ### 1. FSoft-AI4Code/SRank-CodeRanker — vendor/SRank-CodeRanker (e4672e1, 344K)
 ACL Findings 2024: "Functional Overlap Reranking for Neural Code Generation"
-(arXiv 2311.03366). **Closest match to the code-racer harness.**
+(arXiv 2311.03366). **Closest match to the furlong harness.**
 - Pipeline is exactly our shape: `generation/` (code + test-case gen, model-agnostic
   run scripts) → `execution/` (`_execution.py`, `execution.py`, `run.py`,
   `run_greedy.py` — sandboxed multi-process code execution) → `reranking/`

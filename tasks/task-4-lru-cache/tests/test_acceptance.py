@@ -1,6 +1,6 @@
 """Hidden acceptance tests for task-4-lru-cache.
 
-HIDDEN from candidate strategies. Conforms to code-racer INTERFACE.md v1:
+HIDDEN from candidate strategies. Conforms to furlong INTERFACE.md v1:
 `from solution import LRUCache` works in the harness testbed (solution.py
 sits flat next to this file).
 """

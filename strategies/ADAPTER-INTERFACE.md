@@ -1,4 +1,4 @@
-# code-racer adapter interface (proposed by t1-impl-strategies, 2026-09-20)
+# furlong adapter interface (proposed by t1-impl-strategies, 2026-09-20)
 
 A **strategy** is a directory `strategies/<name>/` containing an executable `run`
 (invoked as `./run <task-dir> <output-path>`). The harness is strategy-agnostic:
@@ -27,10 +27,10 @@ strategies/<name>/run <task-dir> <output-path>
 
 ## Environment (harness-supplied, adapter must honor)
 
-- `CODERACER_DEADLINE` — unix timestamp; adapter must stop before it (fail-fast ceiling).
-- `CODERACER_TIMEOUT_S` — wall-clock ceiling in seconds for this run.
-- `CODERACER_MODEL` / `CODERACER_BASE_URL` — optional overrides for model backends.
-- `CODERACER_TEMPERATURE` — optional; adapters with a genuinely different
+- `FURLONG_DEADLINE` — unix timestamp; adapter must stop before it (fail-fast ceiling).
+- `FURLONG_TIMEOUT_S` — wall-clock ceiling in seconds for this run.
+- `FURLONG_MODEL` / `FURLONG_BASE_URL` — optional overrides for model backends.
+- `FURLONG_TEMPERATURE` — optional; adapters with a genuinely different
   temperature schedule may use it, but temperature alone is NOT a distinct strategy.
 
 ## Conventions

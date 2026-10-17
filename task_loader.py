@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Task-spec loader for code-racer.
+"""Task-spec loader for furlong.
 
 A task dir:
     <task>/

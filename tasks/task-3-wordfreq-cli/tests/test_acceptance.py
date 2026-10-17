@@ -1,6 +1,6 @@
 """Hidden acceptance tests for task-3-wordfreq-cli.
 
-HIDDEN from candidate strategies. Conforms to code-racer INTERFACE.md v1:
+HIDDEN from candidate strategies. Conforms to furlong INTERFACE.md v1:
 the candidate's program is collected as solution.py and sits flat next to
 this file in the harness testbed; the CLI is exercised as a real subprocess.
 

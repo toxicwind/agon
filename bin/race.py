@@ -21,7 +21,7 @@ Event-driven design — zero sleeps, zero polling:
     lines are re-emitted on our stderr — per-candidate telemetry
     (solve/test latencies, pass counts) flows through to the winners ledger.
 
-Import surface (borrow, don't fork — code-racer D1):
+Import surface (borrow, don't fork — furlong D1):
   from race import run_one_sync, log_winners, load_strategies
   run_one_sync(strategy, timeout) runs a single contestant synchronously.
   The async primitives run_one() / run_race() are importable too.
@@ -203,7 +203,7 @@ async def run_race(strategies, race_id, tag, timeout, race_timeout):
                       "name": r["name"], "ok": r["ok"], "valid": r["valid"],
                       "latency_s": r["latency_s"], "error": r["error"]})
                 # Passthrough: re-emit any NDJSON {"event": ...} lines the
-                # contestant printed on its own stderr (e.g. code-racer's
+                # contestant printed on its own stderr (e.g. furlong's
                 # candidate_result telemetry) so they flow to the ledger.
                 for line in r.get("stderr_tail", "").splitlines():
                     line = line.strip()

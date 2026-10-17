@@ -1,4 +1,4 @@
-# code-racer-universal — Harness Architecture
+# furlong-universal — Harness Architecture
 
 **Team 1 · t1-architect (ember) · 2026-09-20**
 **Status: living contract.** Sibling teams (t1-papers, t1-repos, t1-impl-core,
@@ -83,7 +83,7 @@ strategies ──race──▶ candidates ──judge FIFO──▶ first ALL-te
 
 - Judge = `cr-judge <task-dir> <candidate-file>`: copies task `tests/` +
   candidate into a fresh tmpdir, runs `pytest -q` with its own ceiling.
-  Runs under `code-racer/.venv/bin/python -m pytest`
+  Runs under `furlong/.venv/bin/python -m pytest`
   (venv provisioned 2026-09-20, pytest 9.1.1).
   Returns `valid/invalid` + per-test timings + first-failure excerpt.
 - Losers failing tests are **abort-isolated** (router-track rule): they do not
@@ -138,7 +138,7 @@ Rules:
 ### D6 — Winners ledger: task-specific + global mirror
 
 - **Task ledger** (rich schema):
-  `/home/toxic/estate/killer-features/code-racer/winners.jsonl`
+  `/home/toxic/estate/killer-features/furlong/winners.jsonl`
   ```json
   {"ts": 1726800000.0, "task_id": "fizzbuzz-01", "winner": "kimi-k2-cot",
    "strategies": [{"name": "kimi-k2-cot", "class": "llm-cloud",
@@ -204,7 +204,7 @@ surfaces for single-shot codegen tools.
 
 ### D10 — Herd first-class model (feeds ranker-audit + race-port teams)
 
-`code-racer` becomes a selectable herd model `code-racer/<task-class>` whose
+`furlong` becomes a selectable herd model `furlong/<task-class>` whose
 "inference" = race the candidate pool for that task class. The ledger schema
 (D6) is the ranker input: per-model pass-rate + latency per task class feeds
 the six provider rankers and the race-port selectable model. t1-e2e verifies
@@ -242,7 +242,7 @@ the ledger → ranker path.
   `cr-llm` + 2 prompt templates; t1-e2e races the sample task live.
 - **Phase 2:** t1-repos lands first `cr-repo` tool; `--cascade` mode;
   optimizer-driven ceiling tightening; 3+ real tasks (algorithms, parsing, API glue).
-- **Phase 3:** `code-racer/<task-class>` as herd selectable model; ledger →
+- **Phase 3:** `furlong/<task-class>` as herd selectable model; ledger →
   ranker-audit scoring; Mixture-of-Schedulers lane scheduling.
 
 ## 6. Open questions (for fleet)

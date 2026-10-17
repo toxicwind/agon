@@ -1,4 +1,4 @@
-# code-racer — Paper Research (T1-PAPERS)
+# furlong — Paper Research (T1-PAPERS)
 
 **Topic:** racing diverse code-generation strategies with execution-based selection.
 Researched 2026-09-20 by t1-papers (ember). Written for builders: every paper
@@ -13,7 +13,7 @@ as one thing: *sample a hypothesis set from diverse generators, then select by
 expected utility under some metric.* Our harness is literally this: strategies
 are the hypothesis generators, the execution score is the utility function,
 and selection = MBR with `execution-match` as the gain. Consequence for
-builders: **the harness is a general MBR decoder, not a code-racer.** Any new
+builders: **the harness is a general MBR decoder, not a furlong.** Any new
 technique below is a new (generator, metric) pair you can plug in without
 changing the core loop.
 

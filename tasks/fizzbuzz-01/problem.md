@@ -1,4 +1,4 @@
-# FizzBuzz — sample code-racer task
+# FizzBuzz — sample furlong task
 
 Write a Python module `solution.py` exposing:
 
