@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# agon check gate — fast deterministic self-test with a clear PASS/FAIL exit.
+# Byte-compiles every Python module + imports the core harness (no network).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+fail=0
+
+if python3 -m py_compile registry.py task_loader.py winners.py run_candidate.py bin/race.py bin/measure.py >/dev/null 2>&1; then
+  echo "PASS byte-compile"
+else
+  echo "FAIL byte-compile"
+  fail=1
+fi
+
+if python3 - <<'PY' >/dev/null 2>&1
+import importlib.util, sys
+for m in ("registry", "task_loader"):
+    spec = importlib.util.spec_from_file_location(m, f"{m}.py")
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[m] = mod
+    spec.loader.exec_module(mod)
+print("import-ok")
+PY
+then
+  echo "PASS import-harness"
+else
+  echo "FAIL import-harness"
+  fail=1
+fi
+
+if [ -f strategies/registry.json ]; then
+  echo "PASS strategies-registry"
+else
+  echo "FAIL strategies-registry"
+  fail=1
+fi
+
+if [ "$fail" -eq 0 ]; then
+  echo "AGON CHECK: PASS"
+  exit 0
+fi
+echo "AGON CHECK: FAIL"
+exit 1

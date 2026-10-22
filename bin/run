@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# agon rig — primary operation, deterministic + self-sufficient.
+# agon races candidate code strategies against a task's real acceptance tests,
+# first-passing-wins. The autonomous op is validating the harness + strategy
+# registry and showing available tasks. (Live races need model/API creds and
+# are run on-demand via `race-task`; this rig proves the engine is runnable.)
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+echo "=== agon: strategy registry ==="
+if [ -f strategies/registry.json ]; then
+  python3 - <<'PY'
+import json
+d = json.load(open("strategies/registry.json"))
+els = d if isinstance(d, list) else d.get("strategies", d.get("registry", []))
+names = [e.get("name") if isinstance(e, dict) else str(e) for e in els] if isinstance(els, list) else []
+print(f"{len(names)} strategies: {', '.join(names[:12])}{' ...' if len(names) > 12 else ''}")
+PY
+else
+  echo "FAIL: strategies/registry.json not found"
+  exit 1
+fi
+
+echo "=== agon: available tasks ==="
+ls tasks | grep -v -E 'README|CONTRACT' | tr '\n' ' '; echo
